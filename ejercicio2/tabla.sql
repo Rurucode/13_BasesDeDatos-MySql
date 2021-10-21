@@ -12,16 +12,26 @@ CREATE TABLE coches(
     color VARCHAR(20),
     precio_venta DECIMAL
     PRIMARY KEY(id),
-    FOREIGN KEY(fk_id_tabla) REFERENCES clientes(id)
+    FOREIGN KEY(fk_id_cliente) REFERENCES clientes(id)
 )
 
 CREATE TABLE revision(
 	id INT AUTO_INCREMENT,
-	fk_id_coches,
-    filtro,
-    aceite,
-    frenos,
-    numero_revisiones,
-    
-    
+	fk_id_coches INT,
+    filtro BOOL,
+    aceite BOOL,
+    frenos VARCHAR(200),
+    numero_revisiones TINYINT,
+    PRIMARY KEY(id),
+    FOREIGN KEY(fk_id_coche) REFERENCE coches(id)
+)
+
+CREATE TABLE cliente(
+	id INT AUTO_INCREMENT,
+    direccion VARCHAR(200),
+    ciudad VARCHAR(50),
+    telefono TINYINT, 
+    nif VARCHAR(9),
+    nombre VARCHAR(30),
+    PRIMARY KEY(id)
 )
